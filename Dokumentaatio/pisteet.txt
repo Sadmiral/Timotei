@@ -1,0 +1,4 @@
+Tietokannat:
+10
+Olio-ohjelmointi:
+20

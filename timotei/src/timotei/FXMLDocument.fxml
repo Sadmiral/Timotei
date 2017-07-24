@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timotei.FXMLDocumentController">
+    <children>
+      <Text layoutX="6.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TIMO Järjestelmä">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <WebView fx:id="web" layoutX="13.0" layoutY="29.0" prefHeight="429.0" prefWidth="655.0" />
+      <Text layoutX="14.0" layoutY="477.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lisää SmartPost automaatit kartalle:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="kaupunkiComboBox" layoutX="14.0" layoutY="482.0" prefHeight="32.0" prefWidth="283.0" />
+      <Button fx:id="lisääkartalleButton" layoutX="205.0" layoutY="520.0" mnemonicParsing="false" onAction="#drawPin" prefHeight="32.0" prefWidth="92.0" text="Lisää Kartalle" />
+      <Text layoutX="341.0" layoutY="476.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pakettien luonti ja lähetys:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Button fx:id="päivitäpakettiButton" layoutX="528.0" layoutY="482.0" mnemonicParsing="false" onAction="#muokkaaPakettia" prefHeight="32.0" prefWidth="139.0" text="Päivitä paketin tietoja" />
+      <Button fx:id="luopakettiButton" layoutX="341.0" layoutY="482.0" mnemonicParsing="false" onAction="#luoPaketti" prefHeight="32.0" prefWidth="86.0" text="Luo paketti" />
+      <Button fx:id="lähetäpakettiButton" layoutX="528.0" layoutY="520.0" mnemonicParsing="false" onAction="#drawRoad" prefHeight="32.0" prefWidth="92.0" text="Lähetä paketti" />
+      <Button fx:id="poistareititButton" layoutX="341.0" layoutY="558.0" mnemonicParsing="false" onAction="#deleteRoads" prefHeight="32.0" prefWidth="125.0" text="Poista reitit kartalta" />
+      <ComboBox fx:id="postiComboBox" layoutX="341.0" layoutY="520.0" onMouseClicked="#updatePaketit" prefHeight="32.0" prefWidth="125.0" />
+    </children>
+</AnchorPane>

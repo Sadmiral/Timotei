@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timotei.MuokkaaPakettiaController">
+   <children>
+      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Muokkaa pakettia:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="300.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valitse pakettiluokka:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Muokkaa esineen tietoja:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paketin lähetystiedot:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="lähtöComboBox" layoutX="14.0" layoutY="320.0" onAction="#lähtöSelect" prefHeight="25.0" prefWidth="280.0" promptText="Lähtökaupunki" />
+      <ComboBox fx:id="lähtöautomaattiComboBox" layoutX="14.0" layoutY="354.0" prefHeight="25.0" prefWidth="280.0" promptText="Automaatti" />
+      <ComboBox fx:id="kohdeComboBox" layoutX="305.0" layoutY="320.0" onAction="#kohdeSelect" prefHeight="25.0" prefWidth="280.0" promptText="Kohdekaupunki" />
+      <ComboBox fx:id="kohdeautomaattiComboBox" layoutX="305.0" layoutY="354.0" prefHeight="25.0" prefWidth="280.0" promptText="Automaatti" />
+      <Button fx:id="peruutaButton" layoutX="425.0" layoutY="420.0" mnemonicParsing="false" onAction="#Peruuta" prefHeight="25.0" prefWidth="76.0" text="Peruuta" />
+      <Button fx:id="luopakettiButton" layoutX="509.0" layoutY="420.0" mnemonicParsing="false" onAction="#Luo" prefHeight="25.0" prefWidth="76.0" text="Valmis" />
+      <TextField fx:id="nimiField" layoutX="14.0" layoutY="157.0" prefHeight="25.0" prefWidth="280.0" promptText="Nimi" />
+      <TextField fx:id="kokoField" layoutX="14.0" layoutY="189.0" prefHeight="25.0" prefWidth="280.0" promptText="Koko       cm*cm*cm" />
+      <TextField fx:id="massaField" layoutX="14.0" layoutY="222.0" prefHeight="25.0" prefWidth="280.0" promptText="Massa     kg" />
+      <CheckBox fx:id="särkyvääCheckBox" layoutX="14.0" layoutY="254.0" mnemonicParsing="false" text="Särkyvää" />
+      <ComboBox fx:id="valitseluokkaComboBox" layoutX="305.0" layoutY="157.0" onAction="#luokanInfo" prefHeight="25.0" prefWidth="280.0" />
+      <Label fx:id="infotextArea" alignment="TOP_LEFT" layoutX="305.0" layoutY="187.0" prefHeight="127.0" prefWidth="280.0" wrapText="true" />
+      <Label fx:id="pktidLabel" layoutX="218.0" layoutY="13.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

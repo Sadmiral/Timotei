@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="459.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="timotei.LuoPakettiController">
+   <children>
+      <Text layoutX="14.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luo paketti">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valitse esine:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="305.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valitse pakettiluokka:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TAI">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luo uusi esine:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paketin lähetystiedot:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="valitseesineComboBox" layoutX="14.0" layoutY="72.0" prefHeight="25.0" prefWidth="280.0" />
+      <ComboBox fx:id="lähtöComboBox" layoutX="14.0" layoutY="320.0" onAction="#lähtöSelect" prefHeight="25.0" prefWidth="280.0" promptText="Lähtökaupunki" />
+      <ComboBox fx:id="lähtöautomaattiComboBox" layoutX="14.0" layoutY="354.0" prefHeight="25.0" prefWidth="280.0" promptText="Automaatti" />
+      <ComboBox fx:id="kohdeComboBox" layoutX="305.0" layoutY="320.0" onAction="#kohdeSelect" prefHeight="25.0" prefWidth="280.0" promptText="Kohdekaupunki" />
+      <ComboBox fx:id="kohdeautomaattiComboBox" layoutX="305.0" layoutY="354.0" prefHeight="25.0" prefWidth="280.0" promptText="Automaatti" />
+      <Button fx:id="peruutaButton" layoutX="425.0" layoutY="420.0" mnemonicParsing="false" onAction="#Peruuta" prefHeight="25.0" prefWidth="76.0" text="Peruuta" />
+      <Button fx:id="luopakettiButton" layoutX="509.0" layoutY="420.0" mnemonicParsing="false" onAction="#Luo" text="Luo paketti" />
+      <TextField fx:id="nimiField" layoutX="14.0" layoutY="157.0" prefHeight="25.0" prefWidth="280.0" promptText="Nimi" />
+      <TextField fx:id="kokoField" layoutX="14.0" layoutY="189.0" prefHeight="25.0" prefWidth="280.0" promptText="Koko    cm*cm*cm (esim. 9000)" />
+      <TextField fx:id="massaField" layoutX="14.0" layoutY="222.0" prefHeight="25.0" prefWidth="280.0" promptText="Massa     kg" />
+      <CheckBox fx:id="särkyvääCheckBox" layoutX="14.0" layoutY="254.0" mnemonicParsing="false" text="Särkyvää" />
+      <TextArea fx:id="infotextArea" editable="false" layoutX="305.0" layoutY="157.0" prefHeight="159.0" prefWidth="280.0" promptText="Tähän tulee pakettiluokan valittua infoa kyseisestä luokasta." wrapText="true" />
+      <ComboBox fx:id="valitseluokkaComboBox" layoutX="305.0" layoutY="72.0" onAction="#luokanInfo" prefHeight="25.0" prefWidth="280.0" />
+      <TextField fx:id="lähettäjäField" layoutX="305.0" layoutY="108.0" prefHeight="25.0" prefWidth="280.0" promptText="Lähettäjän nimi" />
+   </children>
+</AnchorPane>

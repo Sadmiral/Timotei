@@ -1,0 +1,106 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0px; padding: 0px }
+  #map_canvas { height: 100%; background-color: #666970; }
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false">
+</script>
+<script type="text/javascript">
+  var polyMarkerArray = [];
+  function initialize() {
+    var latlng = new google.maps.LatLng(63.9667, 25.7667);
+    var myOptions = {
+      zoom: 6,
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: false,
+      navigationControl: false,
+      streetViewControl: false,
+      backgroundColor: "#666970"
+    };
+    
+ 
+    document.geocoder = new google.maps.Geocoder();
+    document.map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+ 
+    document.setMapTypeRoad = function setMapTypeRoad() {
+        document.map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+    };
+    document.setMapTypeSatellite = function setMapTypeSatellite() {
+        document.map.setMapTypeId(google.maps.MapTypeId.SATELLITE);
+    };
+    document.setMapTypeHybrid = function setMapTypeHybrid() {
+        document.map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+    };
+    document.setMapTypeTerrain = function setMapTypeTerrain() {
+        document.map.setMapTypeId(google.maps.MapTypeId.TERRAIN);
+    };
+  }
+ 
+  document.goToLocation = function goToLocation(searchString, infoString, color) {
+    document.geocoder.geocode( {'address': searchString}, function(results, status) {
+      if (status === google.maps.GeocoderStatus.OK) {
+        var icon = 'http://maps.google.com/mapfiles/ms/icons/' + color + '-dot.png';
+        var marker = new google.maps.Marker({
+          map: document.map,
+          position: results[0].geometry.location,
+          icon: icon
+        });
+        var info = new google.maps.InfoWindow({
+          content: infoString
+        });
+
+        google.maps.event.addListener(marker, "click", function() {
+          info.open(document.map, marker);
+        });
+        alert(i);
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  }
+
+  document.createPath = function createPath(pathArray, pathColor, speed) {
+    var src = new google.maps.LatLng(pathArray[0], pathArray[1]);
+    var dest = new google.maps.LatLng(pathArray[2], pathArray[3]);
+    var path = new google.maps.MVCArray();
+    var service = new google.maps.DirectionsService();
+    var poly = new google.maps.Polyline({map: document.map, strokeColor: pathColor});
+    polyMarkerArray.push(poly);
+
+    path.push(src);
+    poly.setPath(path);
+    service.route({
+      origin: src,
+      destination: dest,
+      travelMode: google.maps.DirectionsTravelMode.DRIVING
+    }, function (result, status) {
+      if(status === google.maps.DirectionsStatus.OK) {
+        for(var i=0, len = result.routes[0].overview_path.length; i < len; i++) {
+          disp_route(path, i, result.routes[0].overview_path[i], speed);
+        }
+      }
+    });
+    return Math.round(google.maps.geometry.spherical.computeLength([src, dest])/1000 * 100) / 100;
+  };
+
+  disp_route = function(path, i, loc, speed) {
+    setTimeout(function() {
+      path.push(loc);
+    }, speed * 100 * i);
+  };
+
+  document.deletePaths = function deletePaths() {
+    for(var i=0; i<polyMarkerArray.length;i++) {
+      polyMarkerArray[i].setMap(null);
+    }
+} 
+</script>
+</head>
+<body onload="initialize()">
+  <div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>
